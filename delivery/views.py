@@ -1,5 +1,5 @@
 from .models import Deliverer, Delivery
-from .serializers import DeliverySerializer, DelivererSerializer
+from .serializers import DeliverySerializer, DelivererSerializer, DeliverySerializerSent
 from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -13,6 +13,13 @@ def LeadListCreate(request):
     snippets = Deliverer.objects.all()
     serializer = DelivererSerializer(snippets, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def LeadListDelivery(request):
+    snippets = Delivery.objects.all()
+    serializer = DeliverySerializerSent(snippets, many=True)
+    return Response(serializer.data)
+
 
 @api_view(["POST"])
 def ClosestPoint(request):
