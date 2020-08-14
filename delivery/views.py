@@ -4,9 +4,11 @@ from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 import math
 import json
+import requests
+
 
 @api_view(['GET'])
 def LeadListCreate(request):
@@ -19,7 +21,6 @@ def LeadListDelivery(request):
     snippets = Delivery.objects.all()
     serializer = DeliverySerializerSent(snippets, many=True)
     return Response(serializer.data)
-
 
 @api_view(["POST"])
 def ClosestPoint(request):
@@ -53,4 +54,5 @@ def select_nearest_neighbor(starting_point_x, starting_point_y, neighbors):
                 if item_distance_to_start_point < nearest_distance:
                     nearest_distance = item_distance_to_start_point
                     nearest_neighbor = item
+        print(nearest_neighbor)
         return nearest_neighbor

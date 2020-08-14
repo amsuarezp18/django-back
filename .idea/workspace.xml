@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f017a8d1-c7d1-4599-bb4c-c4bbf52a4e63" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delivery/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/delivery/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/delivery/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/views.py" afterDir="false" />
     </list>
@@ -32,7 +32,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../logistics" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -48,14 +48,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1597188824465">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1597363527556">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597188824465" />
-    <state x="390" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1597188713385">
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1597363527556" />
+    <state x="390" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1597352504092">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="390" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597188713385" />
+    <state x="390" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1597352504092" />
     <state x="346" y="49" key="search.everywhere.popup" timestamp="1597189524417">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
