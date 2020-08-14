@@ -4,7 +4,7 @@ class Deliverer(models.Model):
     identifier = models.PositiveIntegerField()
     x_deliverer = models.IntegerField()
     y_deliverer = models.IntegerField()
-    last_updated = models.DateField()
+    last_updated = models.DateTimeField()
 
     def __str__(self):
         return '{}'.format(self.identifier)
