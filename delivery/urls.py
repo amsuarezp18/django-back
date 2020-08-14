@@ -6,4 +6,5 @@ urlpatterns = [
     path('list/', views.LeadListCreate),
     path('list_delivery/', views.LeadListDelivery),
     path('pointSearch/', views.ClosestPoint ),
+    path('updateData/', views.UpdateData)
 ]

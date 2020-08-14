@@ -1,14 +1,13 @@
 from .models import Deliverer, Delivery
-from .serializers import DeliverySerializer, DelivererSerializer, DeliverySerializerSent
+from .serializers import DeliverySerializer, DelivererSerializer, DeliverySerializerSent, Testing
 from rest_framework import generics
+from django.shortcuts import render, get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from datetime import datetime
 from rest_framework import status
-from django.http import HttpResponse, JsonResponse
 import math
-import json
 import requests
-
 
 @api_view(['GET'])
 def LeadListCreate(request):
@@ -28,6 +27,7 @@ def ClosestPoint(request):
         response = request.data
         serializer = DeliverySerializer(data=response)
         if serializer.is_valid():
+            print(serializer.data)
             coord_x = serializer.data['x_delivery']
             coord_y = serializer.data['y_delivery']
             list = Deliverer.objects.all()
@@ -54,5 +54,23 @@ def select_nearest_neighbor(starting_point_x, starting_point_y, neighbors):
                 if item_distance_to_start_point < nearest_distance:
                     nearest_distance = item_distance_to_start_point
                     nearest_neighbor = item
-        print(nearest_neighbor)
         return nearest_neighbor
+
+@api_view(['GET'])
+def UpdateData(request):
+    response = requests.get('https://gist.githubusercontent.com/CesarF/24a0d07afa64532a0ee72b32f554ed8f/raw/ae28ea0e1f9eb4e143d96fe932731d24763beb92/points.json')
+    data = response.json()
+    for i in range(len(data)):
+        dict_simp = {"identifier":data[i]["id"],"x_deliverer":data[i]["x"],"y_deliverer":data[i]["y"]}
+        serializer = Testing(data=dict_simp)
+        if serializer.is_valid():
+            id_new = serializer.data['identifier']
+            point_to_edit = get_object_or_404(Deliverer, identifier=id_new)
+            point_to_edit.x_deliverer = serializer.data['x_deliverer']
+            point_to_edit.y_deliverer = serializer.data['y_deliverer']
+            point_to_edit.last_updated =datetime.now()
+            point_to_edit.save()
+
+    snippets = Deliverer.objects.all()
+    serializer = DelivererSerializer(snippets, many=True)
+    return Response(serializer.data)

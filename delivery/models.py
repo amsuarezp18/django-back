@@ -14,4 +14,3 @@ class Delivery(models.Model):
     y_delivery = models.IntegerField()
     deliverer = models.ForeignKey(Deliverer,on_delete=models.CASCADE,related_name='delivery_deliverer')
 
-    
